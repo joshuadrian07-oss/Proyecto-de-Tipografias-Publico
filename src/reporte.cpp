@@ -5,9 +5,7 @@
 
 using namespace std;
 
-void generarReportePDF(
-    const vector<Tipografia> &tipografias
-)
+void generarReportePDF(const vector<Tipografia> &tipografias)
 {
     ofstream archivo("data/reporte.pdf");
 
