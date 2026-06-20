@@ -6,10 +6,7 @@
 using namespace std;
 
 //SECUENCIAL NOMBRE
-int busquedaSecuencialNombre(
-    const vector<Tipografia> &tipografias,
-    string nombre
-)
+int busquedaSecuencialNombre(const vector<Tipografia> &tipografias, string nombre)
 {
     for(int i=0;i<tipografias.size();i++)
     {
@@ -23,10 +20,7 @@ int busquedaSecuencialNombre(
 }
 
 //SECUENCIAL CODIGO
-int busquedaSecuencialCodigo(
-    const vector<Tipografia> &tipografias,
-    string codigo
-)
+int busquedaSecuencialCodigo( const vector<Tipografia> &tipografias, string codigo)
 {
     for(int i=0;i<tipografias.size();i++)
     {
@@ -40,11 +34,7 @@ int busquedaSecuencialCodigo(
 }
 
 //BINARIA ITERATIVA
-int busquedaBinariaIterativa(
-    const vector<Tipografia> &tipografias,
-    string nombre,
-    int &comparaciones
-)
+int busquedaBinariaIterativa(const vector<Tipografia> &tipografias, string nombre,int &comparaciones)
 {
     comparaciones=0;
 
@@ -76,13 +66,7 @@ int busquedaBinariaIterativa(
 }
 
 //BINARIA RECURSIVA
-int busquedaBinariaRecursiva(
-    const vector<Tipografia> &tipografias,
-    int izquierda,
-    int derecha,
-    string nombre,
-    int &comparaciones
-)
+int busquedaBinariaRecursiva(const vector<Tipografia> &tipografias, int izquierda, int derecha, string nombre, int &comparaciones)
 {
     if(izquierda>derecha)
     {
@@ -100,20 +84,8 @@ int busquedaBinariaRecursiva(
 
     if(nombre<tipografias[medio].nombre)
     {
-        return busquedaBinariaRecursiva(
-            tipografias,
-            izquierda,
-            medio-1,
-            nombre,
-            comparaciones
-        );
+        return busquedaBinariaRecursiva(tipografias, izquierda, medio-1, nombre, comparaciones);
     }
 
-    return busquedaBinariaRecursiva(
-        tipografias,
-        medio+1,
-        derecha,
-        nombre,
-        comparaciones
-    );
+    return busquedaBinariaRecursiva( tipografias, medio+1, derecha, nombre,  comparaciones );
 }
