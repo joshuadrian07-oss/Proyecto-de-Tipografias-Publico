@@ -6,14 +6,7 @@
 using namespace std;
 
 //MERGE AUXILIAR
-void merge(
-    vector<Tipografia> &tipografias,
-    int izquierda,
-    int medio,
-    int derecha,
-    int &comparaciones,
-    int &intercambios
-)
+void merge(vector<Tipografia> &tipografias, int izquierda, int medio, int derecha, int &comparaciones, int &intercambios)
 {
     vector<Tipografia> temporal;
 
@@ -56,11 +49,7 @@ void merge(
 }
 
 //BUBBLE SORT
-void ordenarBubble(
-    vector<Tipografia> &tipografias,
-    int &comparaciones,
-    int &intercambios
-)
+void ordenarBubble(vector<Tipografia> &tipografias, int &comparaciones, int &intercambios)
 {
     comparaciones=0;
     intercambios=0;
@@ -76,8 +65,7 @@ void ordenarBubble(
         {
             comparaciones++;
 
-            if(tipografias[j].nombre>
-               tipografias[j+1].nombre)
+            if(tipografias[j].nombre>tipografias[j+1].nombre)
             {
                 aux=tipografias[j];
                 tipografias[j]=tipografias[j+1];
@@ -96,49 +84,22 @@ void ordenarBubble(
 }
 
 //MERGE SORT
-void mergeSort(
-    vector<Tipografia> &tipografias,
-    int izquierda,
-    int derecha,
-    int &comparaciones,
-    int &intercambios
-)
+void mergeSort(vector<Tipografia> &tipografias, int izquierda, int derecha, int &comparaciones, int &intercambios)
 {
     if(izquierda<derecha)
     {
         int medio=(izquierda+derecha)/2;
 
-        mergeSort(
-            tipografias,
-            izquierda,
-            medio,
-            comparaciones,
-            intercambios
-        );
+        mergeSort(tipografias, izquierda, medio, comparaciones, intercambios);
 
-        mergeSort(
-            tipografias,
-            medio+1,
-            derecha,
-            comparaciones,
-            intercambios
-        );
+        mergeSort(tipografias, medio+1, derecha, comparaciones, intercambios);
 
-        merge(
-            tipografias,
-            izquierda,
-            medio,
-            derecha,
-            comparaciones,
-            intercambios
-        );
+        merge(tipografias, izquierda, medio, derecha, comparaciones, intercambios);
     }
 }
 
 //COMPARACION
-void compararOrdenamientos(
-    vector<Tipografia> &tipografias
-)
+void compararOrdenamientos(vector<Tipografia> &tipografias)
 {
     vector<Tipografia> bubble=tipografias;
     vector<Tipografia> mergeVector=tipografias;
@@ -149,21 +110,11 @@ void compararOrdenamientos(
     int compMerge=0;
     int intMerge=0;
 
-    ordenarBubble(
-        bubble,
-        compBubble,
-        intBubble
-    );
+    ordenarBubble(bubble,compBubble,intBubble);
 
     if(!mergeVector.empty())
     {
-        mergeSort(
-            mergeVector,
-            0,
-            mergeVector.size()-1,
-            compMerge,
-            intMerge
-        );
+        mergeSort(mergeVector,0, mergeVector.size()-1,compMerge,intMerge);
     }
 
     cout<<"\n===== REPORTE DE EFICIENCIA =====\n";
@@ -178,11 +129,7 @@ void compararOrdenamientos(
     cout<<"Intercambios: "<<intMerge<<endl;
     cout<<"Total: "<<compMerge+intMerge<<endl;
 
-    if(
-        (compBubble+intBubble)
-        <
-        (compMerge+intMerge)
-    )
+    if((compBubble+intBubble)<(compMerge+intMerge))
     {
         cout<<"\nMetodo mas eficiente: Bubble Sort\n";
     }
@@ -195,25 +142,5 @@ void compararOrdenamientos(
 }
 
 //ORDENAR POR CATEGORIA
-void ordenarPorCategoria(
-    vector<Tipografia> &tipografias
-)
+void ordenarPorCategoria(vector<Tipografia> &tipografias)
 {
-    Tipografia aux;
-
-    for(int i=0;i<tipografias.size()-1;i++)
-    {
-        for(int j=0;j<tipografias.size()-i-1;j++)
-        {
-            if(
-                tipografias[j].categoria>
-                tipografias[j+1].categoria
-            )
-            {
-                aux=tipografias[j];
-                tipografias[j]=tipografias[j+1];
-                tipografias[j+1]=aux;
-            }
-        }
-    }
-}
