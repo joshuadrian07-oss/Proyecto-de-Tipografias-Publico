@@ -16,10 +16,7 @@ int main()
 {
     vector<Tipografia> tipografias;
 
-    cargarTipografias(
-        "data/tipoprueba.csv",
-        tipografias
-    );
+    cargarTipografias( "data/tipoprueba.csv",tipografias);
 
     int opcion=-1;
 
@@ -34,37 +31,24 @@ int main()
         //REGISTRAR
         case 1:
 
-            crearTipografia(
-                tipografias
-            );
+            crearTipografia(tipografias);
 
-            guardarTipografias(
-                "data/tipoprueba.csv",
-                tipografias
-            );
+            guardarTipografias("data/tipoprueba.csv", tipografias);
 
             break;
 
         //LISTAR
         case 2:
 
-            listarTipografias(
-                tipografias
-            );
+            listarTipografias(tipografias);
 
             break;
 
         //ORDENAR
         case 3:
 
-            compararOrdenamientos(
-                tipografias
-            );
-
-            guardarTipografias(
-                "data/tipoprueba.csv",
-                tipografias
-            );
+            compararOrdenamientos(tipografias);
+            guardarTipografias("data/tipoprueba.csv", tipografias);
 
             cout<<"\nTipografias ordenadas.\n";
 
@@ -73,28 +57,16 @@ int main()
         //MODIFICAR
         case 4:
 
-            modificarTipografia(
-                tipografias
-            );
-
-            guardarTipografias(
-                "data/tipoprueba.csv",
-                tipografias
-            );
+            modificarTipografia(tipografias);
+            guardarTipografias("data/tipoprueba.csv", tipografias);
 
             break;
 
         //ELIMINAR
         case 5:
 
-            eliminarTipografia(
-                tipografias
-            );
-
-            guardarTipografias(
-                "data/tipoprueba.csv",
-                tipografias
-            );
+            eliminarTipografia(tipografias);
+            guardarTipografias("data/tipoprueba.csv", tipografias);
 
             break;
 
@@ -121,11 +93,7 @@ int main()
                 int compTemp=0;
                 int intTemp=0;
 
-                ordenarBubble(
-                    tipografias,
-                    compTemp,
-                    intTemp
-                );
+                ordenarBubble( tipografias, compTemp, intTemp);
 
                 string nombreBuscado;
 
@@ -146,22 +114,12 @@ int main()
                 if(metodo==1)
                 {
                     posicion=
-                    busquedaBinariaIterativa(
-                        tipografias,
-                        nombreBuscado,
-                        comparaciones
-                    );
+                    busquedaBinariaIterativa(tipografias, nombreBuscado,comparaciones);
                 }
                 else
                 {
                     posicion=
-                    busquedaBinariaRecursiva(
-                        tipografias,
-                        0,
-                        tipografias.size()-1,
-                        nombreBuscado,
-                        comparaciones
-                    );
+                    busquedaBinariaRecursiva( tipografias, 0, tipografias.size()-1,nombreBuscado, comparaciones);
                 }
 
                 if(posicion!=-1)
@@ -205,10 +163,7 @@ int main()
                 cin>>codigoBuscado;
 
                 int posicion=
-                busquedaSecuencialCodigo(
-                    tipografias,
-                    codigoBuscado
-                );
+                busquedaSecuencialCodigo( tipografias, codigoBuscado);
 
                 if(posicion!=-1)
                 {
@@ -274,28 +229,14 @@ int main()
             int comp2=0;
             int int2=0;
 
-            ordenarBubble(
-                tipografias1,
-                comp1,
-                int1
-            );
+            ordenarBubble(tipografias1, comp1, int1);
 
-            ordenarBubble(
-                tipografias2,
-                comp2,
-                int2
-            );
+            ordenarBubble( tipografias2,comp2,int2);
 
             resultado=
-            intercalarTipografias(
-                tipografias1,
-                tipografias2
-            );
+            intercalarTipografias( tipografias1, tipografias2);
 
-            guardarTipografias(
-                "data/resultado.csv",
-                resultado
-            );
+            guardarTipografias( "data/resultado.csv", resultado);
 
             cout<<"\nResultado: "
                 <<resultado.size()
@@ -310,9 +251,7 @@ int main()
         //REPORTE
         case 8:
 
-            generarReportePDF(
-                tipografias
-            );
+            generarReportePDF(ipografias);
 
             break;
 
